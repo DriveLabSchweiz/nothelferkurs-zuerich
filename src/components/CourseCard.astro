@@ -1,0 +1,90 @@
+---
+import { formatDate } from '../lib/utils';
+import translations from '../data/translations.json';
+
+interface Props {
+  course: {
+    id: string;
+    startDate: string;
+    endDate: string;
+    day1: string;
+    day2: string;
+    day1Time: string;
+    day2Time: string;
+    price: number;
+    currency: string;
+    location: string;
+    maxParticipants: number;
+    currentParticipants: number;
+    instructor: string;
+  };
+  lang: 'de' | 'en';
+}
+
+const { course, lang } = Astro.props;
+const t = translations[lang];
+const spotsLeft = course.maxParticipants - course.currentParticipants;
+const basePath = lang === 'en' ? '/en' : '';
+---
+
+<div class="bg-white dark:bg-gray-900 rounded-lg shadow-md border border-gray-200 dark:border-gray-800 p-6 hover:shadow-lg transition-shadow">
+  <div class="space-y-4">
+    <div class="flex justify-between items-start">
+      <div>
+        <h3 class="text-xl font-semibold mb-2">
+          {formatDate(course.day1, lang === 'de' ? 'de-CH' : 'en-GB')}
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          {t.courses.instructor}: {course.instructor}
+        </p>
+      </div>
+      <div class="text-right">
+        <div class="text-2xl font-bold text-blue-600">
+          {course.currency} {course.price}.-
+        </div>
+        <div class="text-xs text-gray-500 mt-1">
+          + CHF 50.- Cashback
+        </div>
+      </div>
+    </div>
+    
+    <div class="space-y-2 text-sm">
+      <div class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <div>
+          <div><strong>{t.courses.day1}:</strong> {formatDate(course.day1, lang === 'de' ? 'de-CH' : 'en-GB')}, {course.day1Time}</div>
+          <div><strong>{t.courses.day2}:</strong> {formatDate(course.day2, lang === 'de' ? 'de-CH' : 'en-GB')}, {course.day2Time}</div>
+          <div class="text-xs text-gray-500 mt-1">({t.courses.includingLunch})</div>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-2">
+        <svg class="w-5 h-5 text-gray-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <div>{course.location}</div>
+      </div>
+      
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+        <div>
+          <span class={spotsLeft <= 5 ? 'text-orange-600 font-semibold' : 'text-green-600'}>
+            {spotsLeft} {t.courses.spotsLeft}
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <a
+      href={`${basePath}/courses?course=${course.id}`}
+      class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition-colors"
+    >
+      {t.courses.book}
+    </a>
+  </div>
+</div>

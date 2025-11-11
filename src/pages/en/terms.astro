@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import translations from '../../data/translations.json';
+
+const lang = 'en';
+const t = translations[lang];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.terms} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto prose dark:prose-invert">
+      <h1>Terms and Conditions (T&C)</h1>
+      <p>Last updated: November 11, 2025</p>
+
+      <h2>1. Scope</h2>
+      <p>These Terms and Conditions (T&C) apply to all bookings of first aid courses made via the website nothelferkurs-zuerich.ch (operated by DriveLab GmbH).</p>
+
+      <h2>2. Registration and Contract Conclusion</h2>
+      <p>By registering for a course via the online form, participants agree to pay the course fee. After successful registration, the system automatically sends a registration confirmation by email. The contract is concluded upon sending this confirmation.</p>
+
+      <h2>3. Course Fees and Payment</h2>
+      <p>The cost of the first aid course is CHF 120.-. Payment is to be made according to the instructions in the confirmation email. Upon booking, a cashback of CHF 50.- will be credited to the DriveLab Wallet, as described in the confirmation email.</p>
+
+      <h2>4. Cancellations and Rebookings</h2>
+      <p>Cancellations or rebookings for courses are free of charge up to 6 days before the course begins. In case of a later cancellation – regardless of the reason (including illness, accident, etc.) – the full course fee will be due, as the spot was reserved for you. There is no right to a refund.</p>
+
+      <h2>5. Course Execution and Cancellation</h2>
+      <p>We reserve the right to cancel or postpone a course for important reasons (e.g., insufficient number of participants or instructor absence). In this case, participants will be informed immediately. Course fees already paid will be fully refunded, or a free alternative date will be offered if possible. Further claims, especially for compensation for consequential costs (e.g., travel expenses), are excluded.</p>
+
+      <h2>6. Course Certificate</h2>
+      <p>The course certificate will be issued after full participation in the course (10 hours). In case of late arrival or early departure, participation may be considered incomplete, and a course certificate may be denied. In this case, the course fee will not be refunded.</p>
+
+      <h2>7. Liability</h2>
+      <p>Insurance is the responsibility of the participants. We assume no liability for damages caused by participants. DriveLab GmbH is only liable for direct damages caused by intentional or grossly negligent breach of duty.</p>
+
+      <h2>8. Data Protection</h2>
+      <p>The data collected during the course booking process will be treated confidentially and used only for organizing the courses and communicating with the participants. For more information, please see our Privacy Policy.</p>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

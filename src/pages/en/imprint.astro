@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import translations from '../../data/translations.json';
+
+const lang = 'en';
+const t = translations[lang];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.imprint} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto prose dark:prose-invert">
+      <h1>Imprint</h1>
+      
+      <h2>Information according to § 5 TMG</h2>
+      <p>
+        DriveLab GmbH<br />
+        Lauriedhofweg 12<br />
+        CH-6300 Zug
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Phone: +41 76 237 13 07<br />
+        Email: info@drivelab.ch
+      </p>
+
+      <h2>Register entry</h2>
+      <p>
+        Entry in the commercial register.<br />
+        Register court: Commercial Register Office of the Canton of Zug<br />
+        Register number: CHE-313.205.027
+      </p>
+
+      <h2>Disclaimer</h2>
+      <p>The contents of our pages were created with the greatest care. However, we cannot guarantee the accuracy, completeness and timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general laws. However, we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.</p>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

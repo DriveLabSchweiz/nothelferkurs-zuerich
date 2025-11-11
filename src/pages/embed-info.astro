@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import translations from '../data/translations.json';
+
+const lang = 'de';
+const t = translations[lang];
+
+const embedCode = `<iframe 
+  src="https://nothelferkurs-zuerich.ch/embed?lang=de" 
+  width="100%" 
+  height="800" 
+  frameborder="0" 
+  style="border: none; overflow: hidden;"
+  title="Nothelferkurs Zürich - Kursliste">
+</iframe>`;
+---
+
+<BaseLayout lang={lang} title={`${t.iframe.title} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold text-center mb-8">{t.iframe.title}</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 text-center">
+        {t.iframe.description}
+      </p>
+      
+      <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg mb-6">
+        <pre class="text-sm overflow-x-auto"><code>{embedCode}</code></pre>
+      </div>
+      
+      <button
+        id="copy-button"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors"
+      >
+        {t.iframe.copyCode}
+      </button>
+      
+      <div class="mt-12">
+        <h2 class="text-2xl font-bold mb-4">Vorschau</h2>
+        <div class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+          <iframe 
+            src="/embed?lang=de" 
+            width="100%" 
+            height="800" 
+            frameborder="0" 
+            style="border: none;"
+            title="Nothelferkurs Zürich - Kursliste">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.getElementById('copy-button')?.addEventListener('click', async () => {
+    const code = `<iframe 
+  src="https://nothelferkurs-zuerich.ch/embed?lang=de" 
+  width="100%" 
+  height="800" 
+  frameborder="0" 
+  style="border: none; overflow: hidden;"
+  title="Nothelferkurs Zürich - Kursliste">
+</iframe>`;
+    
+    try {
+      await navigator.clipboard.writeText(code);
+      const button = document.getElementById('copy-button');
+      if (button) {
+        const originalText = button.textContent;
+        button.textContent = 'Kopiert!';
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2000);
+      }
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  });
+</script>

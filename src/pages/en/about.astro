@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import translations from '../../data/translations.json';
+
+const lang = 'en';
+const t = translations[lang];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.about} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold text-center mb-8">{t.about.title}</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 text-center">
+        {t.about.description}
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+        <img src="/images/NothelferkursZürich.webp" alt="First Aid Course in Zurich" class="rounded-lg shadow-lg" loading="lazy" />
+        <div>
+          <h2 class="text-2xl font-bold mb-4">{t.about.whyUs}</h2>
+          <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+            <li class="flex items-start">
+              <svg class="h-6 w-6 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span>{t.about.reason1}</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-6 w-6 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span>{t.about.reason2}</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-6 w-6 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span>{t.about.reason3}</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="h-6 w-6 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="font-semibold text-blue-600">{t.about.reason4}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

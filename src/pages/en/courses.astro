@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CourseCard from '../../components/CourseCard.astro';
+import BookingForm from '../../components/BookingForm.tsx';
+import translations from '../../data/translations.json';
+import coursesData from '../../data/courses.json';
+
+const lang = 'en';
+const t = translations[lang];
+const courses = coursesData.courses;
+
+const selectedCourseId = Astro.url.searchParams.get('course');
+---
+
+<BaseLayout lang={lang} title={`${t.nav.courses} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-12">{t.courses.title}</h1>
+    
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Course List -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-semibold mb-4">All Dates</h2>
+        <div class="space-y-6">
+          {courses.map(course => (
+            <CourseCard course={course} lang={lang} />
+          ))}
+        </div>
+      </div>
+      
+      <!-- Booking Form -->
+      <div class="sticky top-24">
+        <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800 p-8">
+          <h2 class="text-2xl font-semibold mb-6 text-center">{t.booking.title}</h2>
+          <BookingForm client:load courses={courses} lang={lang} selectedCourseId={selectedCourseId} />
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

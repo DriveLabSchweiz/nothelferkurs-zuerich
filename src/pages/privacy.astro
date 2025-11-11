@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import translations from '../data/translations.json';
+
+const lang = 'de';
+const t = translations[lang];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.privacy} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto prose dark:prose-invert">
+      <h1>Datenschutzerklärung</h1>
+      <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:</p>
+      <p>
+        DriveLab GmbH<br />
+        Lauriedhofweg 12<br />
+        CH-6300 Zug<br />
+        E-Mail: info@drivelab.ch<br />
+        Website: https://www.drivelab.ch
+      </p>
+
+      <h2>Erfassung allgemeiner Informationen beim Besuch unserer Website</h2>
+      <p>Wenn Sie auf unsere Website zugreifen, werden automatisch mittels eines Cookies Informationen allgemeiner Natur erfasst. Diese Informationen (Server-Logfiles) beinhalten etwa die Art des Webbrowsers, das verwendete Betriebssystem, den Domainnamen Ihres Internet-Service-Providers und ähnliches. Hierbei handelt es sich ausschliesslich um Informationen, welche keine Rückschlüsse auf Ihre Person zulassen.</p>
+
+      <h2>Verwendung von Cookies</h2>
+      <p>Wie viele andere Webseiten verwenden wir auch so genannte „Cookies“. Cookies sind kleine Textdateien, die von einem Websiteserver auf Ihre Festplatte übertragen werden. Hierdurch erhalten wir automatisch bestimmte Daten wie z. B. IP-Adresse, verwendeter Browser, Betriebssystem und Ihre Verbindung zum Internet.</p>
+
+      <h2>SSL-Verschlüsselung</h2>
+      <p>Um die Sicherheit Ihrer Daten bei der Übertragung zu schützen, verwenden wir dem aktuellen Stand der Technik entsprechende Verschlüsselungsverfahren (z. B. SSL) über HTTPS.</p>
+
+      <h2>Kontaktformular / Buchungsformular</h2>
+      <p>Treten Sie bzgl. Fragen jeglicher Art per E-Mail oder Kontaktformular mit uns in Kontakt, erteilen Sie uns zum Zwecke der Kontaktaufnahme Ihre freiwillige Einwilligung. Hierfür ist die Angabe einer validen E-Mail-Adresse erforderlich. Diese dient der Zuordnung der Anfrage und der anschliessenden Beantwortung derselben. Die Angabe weiterer Daten ist optional. Die von Ihnen gemachten Angaben werden zum Zwecke der Bearbeitung der Anfrage sowie für mögliche Anschlussfragen gespeichert.</p>
+
+      <h2>Änderung unserer Datenschutzbestimmungen</h2>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

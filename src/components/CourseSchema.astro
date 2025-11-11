@@ -1,0 +1,92 @@
+---
+interface Course {
+  id: string;
+  startDate: string;
+  endDate: string;
+  price: number;
+  currency: string;
+  location: string;
+  instructor: string;
+}
+
+interface Props {
+  courses: Course[];
+  lang: 'de' | 'en';
+}
+
+const { courses, lang } = Astro.props;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DriveLab GmbH",
+  "url": "https://nothelferkurs-zuerich.ch",
+  "logo": "https://nothelferkurs-zuerich.ch/images/LogoTransparency.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+41-76-237-13-07",
+    "contactType": "customer service",
+    "email": "info@drivelab.ch",
+    "areaServed": "CH",
+    "availableLanguage": ["de", "en"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lauriedhofweg 12",
+    "addressLocality": "Zug",
+    "postalCode": "6300",
+    "addressCountry": "CH"
+  }
+};
+
+const coursesSchema = courses.map(course => ({
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": lang === 'de' ? "Nothelferkurs Zürich" : "First Aid Course Zurich",
+  "description": lang === 'de' 
+    ? "Offiziell anerkannter Nothelferkurs in Zürich. Obligatorisch für den Führerausweis. 10 Stunden verteilt auf 2 Tage."
+    : "Officially recognized first aid course in Zurich. Mandatory for driver's license. 10 hours spread over 2 days.",
+  "provider": {
+    "@type": "Organization",
+    "name": "DriveLab GmbH",
+    "url": "https://nothelferkurs-zuerich.ch"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": course.price.toString(),
+    "priceCurrency": course.currency,
+    "availability": "https://schema.org/InStock",
+    "url": `https://nothelferkurs-zuerich.ch/courses?course=${course.id}`,
+    "validFrom": new Date().toISOString()
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "startDate": course.startDate,
+    "endDate": course.endDate,
+    "location": {
+      "@type": "Place",
+      "name": "PH Zürich",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Lagerstrasse 2",
+        "addressLocality": "Zürich",
+        "postalCode": "8004",
+        "addressCountry": "CH"
+      }
+    },
+    "instructor": {
+      "@type": "Person",
+      "name": course.instructor
+    }
+  },
+  "educationalCredentialAwarded": lang === 'de' 
+    ? "Nothelferkurs-Zertifikat (6 Jahre gültig)"
+    : "First Aid Course Certificate (valid for 6 years)"
+}));
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+{coursesSchema.map(schema => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

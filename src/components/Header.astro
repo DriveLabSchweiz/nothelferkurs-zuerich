@@ -1,0 +1,113 @@
+---
+import translations from '../data/translations.json';
+import { getLanguageFromUrl } from '../lib/utils';
+
+const currentLang = getLanguageFromUrl(Astro.url);
+const t = translations[currentLang];
+const currentPath = Astro.url.pathname;
+
+const isEnglish = currentLang === 'en';
+const basePath = isEnglish ? '/en' : '';
+
+const navItems = [
+  { href: `${basePath}/`, label: t.nav.home },
+  { href: `${basePath}/courses`, label: t.nav.courses },
+  { href: `${basePath}/about`, label: t.nav.about },
+  { href: `${basePath}/gallery`, label: t.nav.gallery },
+  { href: `${basePath}/contact`, label: t.nav.contact },
+];
+
+const languageSwitchUrl = isEnglish 
+  ? currentPath.replace('/en', '') || '/'
+  : '/en' + currentPath;
+---
+
+<header class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-gray-950/95 dark:supports-[backdrop-filter]:bg-gray-950/60">
+  <div class="container mx-auto px-4">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href={basePath + '/'} class="flex items-center space-x-2">
+          <img src="/images/LogoTransparency.png" alt="DriveLab Logo" class="h-10 w-10" />
+          <span class="font-bold text-xl hidden sm:inline-block">Nothelferkurs Zürich</span>
+        </a>
+      </div>
+      
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`transition-colors hover:text-blue-600 ${
+              currentPath === item.href ? 'text-blue-600 font-semibold' : 'text-gray-700 dark:text-gray-300'
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href={`${basePath}/courses`}
+          class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+        >
+          {t.nav.bookNow}
+        </a>
+        <a
+          href={languageSwitchUrl}
+          class="inline-flex items-center justify-center rounded-md border border-gray-300 dark:border-gray-700 px-3 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        >
+          {isEnglish ? 'DE' : 'EN'}
+        </a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+        aria-label="Toggle menu"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t">
+    <div class="container mx-auto px-4 py-4 space-y-3">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`block px-3 py-2 rounded-md text-base font-medium ${
+            currentPath === item.href 
+              ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20' 
+              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href={`${basePath}/courses`}
+        class="block w-full text-center rounded-md bg-blue-600 px-4 py-2 text-base font-medium text-white hover:bg-blue-700"
+      >
+        {t.nav.bookNow}
+      </a>
+      <a
+        href={languageSwitchUrl}
+        class="block w-full text-center rounded-md border border-gray-300 dark:border-gray-700 px-4 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+      >
+        {isEnglish ? 'Deutsch' : 'English'}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    
+    button?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+  });
+</script>

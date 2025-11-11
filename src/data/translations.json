@@ -1,0 +1,218 @@
+{
+  "de": {
+    "meta": {
+      "title": "Nothelferkurs Zürich - Jetzt buchen | DriveLab",
+      "description": "Nothelferkurs in Zürich bei DriveLab. Offizielle Anerkennung, zentrale Lage, erfahrene Instruktoren. Jetzt Kurs buchen und CHF 50.- Cashback sichern!",
+      "keywords": "Nothelferkurs Zürich, Nothelfer Zürich, Erste Hilfe Kurs Zürich, Nothilfekurs, Führerschein Zürich"
+    },
+    "nav": {
+      "home": "Home",
+      "courses": "Kurse",
+      "about": "Über uns",
+      "contact": "Kontakt",
+      "gallery": "Galerie",
+      "bookNow": "Jetzt buchen",
+      "terms": "AGB",
+      "privacy": "Datenschutz",
+      "imprint": "Impressum"
+    },
+    "hero": {
+      "title": "Nothelferkurs Zürich",
+      "subtitle": "Offiziell anerkannt für den Führerausweis",
+      "description": "Unser Nothelferkurs in Zürich vermittelt dir alle wichtigen Kenntnisse für lebensrettende Sofortmassnahmen. Der Kurs ist obligatorisch für den Erwerb des Führerausweises und wird von erfahrenen Instruktoren durchgeführt.",
+      "certified": "Offiziell anerkannte Instruktoren",
+      "validCertificate": "6 Jahre gültiges Zertifikat",
+      "requiredForLicense": "Obligatorisch für Führerausweis",
+      "cashback": "CHF 50.- Cashback auf DriveLab Wallet"
+    },
+    "courses": {
+      "title": "Verfügbare Kurse",
+      "book": "Kurs buchen",
+      "spotsLeft": "Plätze frei",
+      "price": "Preis",
+      "duration": "Dauer",
+      "location": "Standort",
+      "instructor": "Instruktor",
+      "day1": "Tag 1",
+      "day2": "Tag 2",
+      "schedule": "Zeitplan",
+      "includingLunch": "inkl. 1h Mittagspause"
+    },
+    "booking": {
+      "title": "Kurs buchen",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "submit": "Verbindlich buchen",
+      "success": "Buchung erfolgreich! Sie erhalten in Kürze eine Bestätigungsmail.",
+      "error": "Fehler bei der Buchung. Bitte versuchen Sie es erneut.",
+      "termsAccept": "Ich akzeptiere die",
+      "termsLink": "Allgemeinen Geschäftsbedingungen"
+    },
+    "location": {
+      "title": "Unser Standort in Zürich",
+      "description": "Der Nothelferkurs findet in der PH Zürich statt, zentral gelegen und optimal mit öffentlichen Verkehrsmitteln erreichbar.",
+      "nearby": "In unmittelbarer Nähe zum Hauptbahnhof Zürich und mit ausgezeichneter Anbindung an Tram und Bus.",
+      "address": "PH Zürich, Lagerstrasse 2, 8004 Zürich"
+    },
+    "team": {
+      "title": "Unser Team",
+      "instructor": "Nothelfer-Instruktor",
+      "administration": "Administration"
+    },
+    "testimonials": {
+      "title": "Was unsere Teilnehmer sagen",
+      "feedback": "Kundenfeedback"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "q1": "Wie lange ist das Nothelferkurs-Zertifikat gültig?",
+      "a1": "Das Zertifikat ist 6 Jahre gültig und wird für den Führerausweis benötigt.",
+      "q2": "Was kostet der Nothelferkurs?",
+      "a2": "Der Kurs kostet CHF 120.-. Nach der Buchung erhalten Sie CHF 50.- Cashback auf Ihr DriveLab Wallet.",
+      "q3": "Wie lange dauert der Kurs?",
+      "a3": "Der Kurs dauert 10 Stunden, verteilt auf zwei Tage: Tag 1 von 18:00-21:00 Uhr und Tag 2 von 09:00-17:00 Uhr (inkl. 1h Mittagspause).",
+      "q4": "Kann ich den Kurs stornieren?",
+      "a4": "Ja, Stornierungen sind bis 6 Tage vor Kursbeginn kostenlos möglich. Bei späteren Absagen wird die volle Kursgebühr fällig.",
+      "q5": "Was muss ich zum Kurs mitbringen?",
+      "a5": "Bringen Sie bitte einen gültigen Ausweis mit. Alle Kursmaterialien werden zur Verfügung gestellt."
+    },
+    "about": {
+      "title": "Über uns",
+      "description": "DriveLab ist Ihr kompetenter Partner für Fahrausbildung in der Schweiz. Unsere erfahrenen Nothelfer-Instruktoren vermitteln lebensrettende Kenntnisse mit Praxisnähe und Professionalität.",
+      "whyUs": "Warum DriveLab?",
+      "reason1": "Offiziell anerkannte Instruktoren",
+      "reason2": "Zentrale Lage in Zürich",
+      "reason3": "Kleine Kursgruppen für optimales Lernen",
+      "reason4": "CHF 50.- Cashback auf DriveLab Wallet"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Haben Sie Fragen? Kontaktieren Sie uns gerne!",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "address": "Adresse"
+    },
+    "footer": {
+      "description": "Offiziell anerkannter Nothelferkurs in Zürich. Jetzt buchen und CHF 50.- Cashback sichern!",
+      "quickLinks": "Schnelllinks",
+      "legal": "Rechtliches",
+      "copyright": "© 2025 DriveLab GmbH. Alle Rechte vorbehalten."
+    },
+    "iframe": {
+      "title": "Kursliste einbetten",
+      "description": "Sie können unsere Kursliste auf Ihrer eigenen Website einbetten. Kopieren Sie einfach den folgenden Code:",
+      "copyCode": "Code kopieren",
+      "copied": "Kopiert!"
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "First Aid Course Zurich - Book Now | DriveLab",
+      "description": "First aid course in Zurich at DriveLab. Official recognition, central location, experienced instructors. Book now and get CHF 50.- cashback!",
+      "keywords": "First Aid Course Zurich, Emergency Course Zurich, First Aid Training Zurich, Driver's License Zurich"
+    },
+    "nav": {
+      "home": "Home",
+      "courses": "Courses",
+      "about": "About",
+      "contact": "Contact",
+      "gallery": "Gallery",
+      "bookNow": "Book Now",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "imprint": "Imprint"
+    },
+    "hero": {
+      "title": "First Aid Course Zurich",
+      "subtitle": "Officially recognized for driver's license",
+      "description": "Our first aid course in Zurich teaches you all the essential skills for life-saving immediate measures. The course is mandatory for obtaining a driver's license and is conducted by experienced instructors.",
+      "certified": "Officially recognized instructors",
+      "validCertificate": "Certificate valid for 6 years",
+      "requiredForLicense": "Mandatory for driver's license",
+      "cashback": "CHF 50.- cashback on DriveLab Wallet"
+    },
+    "courses": {
+      "title": "Available Courses",
+      "book": "Book Course",
+      "spotsLeft": "spots available",
+      "price": "Price",
+      "duration": "Duration",
+      "location": "Location",
+      "instructor": "Instructor",
+      "day1": "Day 1",
+      "day2": "Day 2",
+      "schedule": "Schedule",
+      "includingLunch": "incl. 1h lunch break"
+    },
+    "booking": {
+      "title": "Book Course",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "submit": "Book Now",
+      "success": "Booking successful! You will receive a confirmation email shortly.",
+      "error": "Booking error. Please try again.",
+      "termsAccept": "I accept the",
+      "termsLink": "Terms and Conditions"
+    },
+    "location": {
+      "title": "Our Location in Zurich",
+      "description": "The first aid course takes place at PH Zurich, centrally located and easily accessible by public transport.",
+      "nearby": "In close proximity to Zurich Main Station with excellent tram and bus connections.",
+      "address": "PH Zurich, Lagerstrasse 2, 8004 Zurich"
+    },
+    "team": {
+      "title": "Our Team",
+      "instructor": "First Aid Instructor",
+      "administration": "Administration"
+    },
+    "testimonials": {
+      "title": "What Our Participants Say",
+      "feedback": "Customer Feedback"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How long is the first aid course certificate valid?",
+      "a1": "The certificate is valid for 6 years and is required for obtaining a driver's license.",
+      "q2": "How much does the first aid course cost?",
+      "a2": "The course costs CHF 120.-. After booking, you will receive CHF 50.- cashback on your DriveLab Wallet.",
+      "q3": "How long does the course last?",
+      "a3": "The course lasts 10 hours, spread over two days: Day 1 from 6:00 PM to 9:00 PM and Day 2 from 9:00 AM to 5:00 PM (incl. 1h lunch break).",
+      "q4": "Can I cancel the course?",
+      "a4": "Yes, cancellations are free of charge up to 6 days before the course starts. For later cancellations, the full course fee will be charged.",
+      "q5": "What do I need to bring to the course?",
+      "a5": "Please bring a valid ID. All course materials will be provided."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "DriveLab is your competent partner for driver training in Switzerland. Our experienced first aid instructors teach life-saving skills with practical relevance and professionalism.",
+      "whyUs": "Why DriveLab?",
+      "reason1": "Officially recognized instructors",
+      "reason2": "Central location in Zurich",
+      "reason3": "Small course groups for optimal learning",
+      "reason4": "CHF 50.- cashback on DriveLab Wallet"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Do you have questions? Feel free to contact us!",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address"
+    },
+    "footer": {
+      "description": "Officially recognized first aid course in Zurich. Book now and get CHF 50.- cashback!",
+      "quickLinks": "Quick Links",
+      "legal": "Legal",
+      "copyright": "© 2025 DriveLab GmbH. All rights reserved."
+    },
+    "iframe": {
+      "title": "Embed Course List",
+      "description": "You can embed our course list on your own website. Simply copy the following code:",
+      "copyCode": "Copy Code",
+      "copied": "Copied!"
+    }
+  }
+}

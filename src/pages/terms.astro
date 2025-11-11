@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import translations from '../data/translations.json';
+
+const lang = 'de';
+const t = translations[lang];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.terms} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto prose dark:prose-invert">
+      <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+      <p>Stand: 11. November 2025</p>
+
+      <h2>1. Geltungsbereich</h2>
+      <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Buchungen von Nothelferkursen, die über die Webseite nothelferkurs-zuerich.ch (betrieben von DriveLab GmbH) getätigt werden.</p>
+
+      <h2>2. Anmeldung und Vertragsabschluss</h2>
+      <p>Mit der Anmeldung zu einem Kurs über das Online-Formular verpflichten sich die Teilnehmenden zur Zahlung der Kursgebühr. Nach erfolgreicher Anmeldung versendet das System automatisch eine Anmeldebestätigung per E-Mail. Der Vertrag kommt mit dem Versand dieser Bestätigung zustande.</p>
+
+      <h2>3. Kurskosten und Zahlung</h2>
+      <p>Die Kosten für den Nothelferkurs betragen CHF 120.-. Die Zahlung erfolgt gemäss den Anweisungen in der Bestätigungs-E-Mail. Bei der Buchung wird ein Cashback von CHF 50.- auf dem DriveLab Wallet gutgeschrieben, wie in der Bestätigungsmail beschrieben.</p>
+
+      <h2>4. Stornierungen und Umbuchungen</h2>
+      <p>Stornierungen oder Terminverschiebungen für Kurse sind bis 6 Tage vor Kursbeginn kostenlos möglich. Bei einer späteren Absage – unabhängig vom Grund (auch im Falle von Krankheit, Unfall o.ä.) – wird das volle Kursentgelt fällig, da der Platz für Sie reserviert wurde. Es besteht kein Anspruch auf Rückerstattung.</p>
+
+      <h2>5. Kursdurchführung und -absage</h2>
+      <p>Wir behalten uns das Recht vor, einen Kurs aus wichtigen Gründen (z.B. bei ungenügender Teilnehmerzahl oder Ausfall des Instruktors) abzusagen oder zu verschieben. In diesem Fall werden die Teilnehmenden umgehend informiert. Bereits bezahlte Kursgebühren werden vollumfänglich zurückerstattet, oder es wird nach Möglichkeit ein kostenloser Ersatztermin angeboten. Weitergehende Ansprüche, insbesondere auf Entschädigung für Folgekosten (z.B. Reisekosten), sind ausgeschlossen.</p>
+
+      <h2>6. Kurszertifikat</h2>
+      <p>Das Kurszertifikat wird nach vollständiger Teilnahme am Kurs (10 Stunden) ausgestellt. Bei verspätetem Erscheinen oder vorzeitigem Verlassen des Kurses kann die Teilnahme als nicht erfüllt gewertet und eine Kursbestätigung verweigert werden. Die Kursgebühr wird in diesem Fall nicht zurückerstattet.</p>
+
+      <h2>7. Haftung</h2>
+      <p>Die Versicherung ist Sache der Teilnehmenden. Für Schäden, die durch Teilnehmende verursacht werden, wird keine Haftung übernommen. Die DriveLab GmbH haftet nur für direkte Schäden, die durch vorsätzliche oder grob fahrlässige Pflichtverletzung entstehen.</p>
+
+      <h2>8. Datenschutz</h2>
+      <p>Die im Rahmen der Kursbuchung erfassten Daten werden vertraulich behandelt und nur zur Organisation der Kurse und zur Kommunikation mit den Teilnehmenden verwendet. Weitere Informationen finden Sie in unserer Datenschutzerklärung.</p>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

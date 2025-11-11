@@ -1,0 +1,30 @@
+---
+import CourseCard from '../components/CourseCard.astro';
+import coursesData from '../data/courses.json';
+
+const lang = (Astro.url.searchParams.get('lang') || 'de') as 'de' | 'en';
+const courses = coursesData.courses;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nothelferkurs Zürich - Kursliste</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="space-y-6 p-4">
+    {courses.map(course => (
+      <CourseCard course={course} lang={lang} />
+    ))}
+  </div>
+</body>
+</html>

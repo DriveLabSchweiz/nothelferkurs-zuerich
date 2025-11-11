@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import translations from '../data/translations.json';
+
+const lang = 'de';
+const t = translations[lang];
+
+const images = [
+  { src: '/images/Nothelferkurs.webp', alt: 'Teilnehmer bei einer praktischen Übung im Nothelferkurs' },
+  { src: '/images/NothelferkursZürich.webp', alt: 'Gruppenfoto der Teilnehmer des Nothelferkurses in Zürich' },
+  { src: '/images/NothelferkursZürichHB.webp', alt: 'Nothelferkurs-Szene mit Fokus auf Herz-Lungen-Wiederbelebung' },
+  { src: '/images/1Tages-NothelferkursZürich.webp', alt: 'Instruktor erklärt die stabile Seitenlage' },
+  { src: '/images/JulianBornerNothelferInstruktorZürich.webp', alt: 'Porträt von Instruktor Julian Borner' },
+  { src: '/images/NothelferInstruktorZürichVladimirLepak.webp', alt: 'Porträt von Instruktor Vladimir Lepak' },
+];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.gallery} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-12">Galerie</h1>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {images.map(image => (
+        <div class="overflow-hidden rounded-lg shadow-lg">
+          <img src={image.src} alt={image.alt} class="w-full h-full object-cover aspect-video hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

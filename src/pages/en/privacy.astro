@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import translations from '../../data/translations.json';
+
+const lang = 'en';
+const t = translations[lang];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.privacy} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto prose dark:prose-invert">
+      <h1>Privacy Policy</h1>
+      <p>The controller in the sense of data protection laws, in particular the EU General Data Protection Regulation (GDPR), is:</p>
+      <p>
+        DriveLab GmbH<br />
+        Lauriedhofweg 12<br />
+        CH-6300 Zug<br />
+        Email: info@drivelab.ch<br />
+        Website: https://www.drivelab.ch
+      </p>
+
+      <h2>Collection of general information when visiting our website</h2>
+      <p>When you access our website, information of a general nature is automatically collected by means of a cookie. This information (server log files) includes, for example, the type of web browser, the operating system used, the domain name of your internet service provider and similar information. This is exclusively information which does not allow any conclusions to be drawn about your person.</p>
+
+      <h2>Use of Cookies</h2>
+      <p>Like many other websites, we also use so-called "cookies". Cookies are small text files that are transferred from a website server to your hard drive. This automatically provides us with certain data such as your IP address, the browser you are using, your operating system and your connection to the internet.</p>
+
+      <h2>SSL Encryption</h2>
+      <p>To protect the security of your data during transmission, we use state-of-the-art encryption methods (e.g. SSL) via HTTPS.</p>
+
+      <h2>Contact Form / Booking Form</h2>
+      <p>If you contact us with questions of any kind by e-mail or contact form, you give us your voluntary consent for the purpose of contacting you. For this purpose, it is necessary to provide a valid e-mail address. This is used to assign the request and then reply to it. The provision of further data is optional. The information you provide will be stored for the purpose of processing the request and for possible follow-up questions.</p>
+
+      <h2>Changes to our privacy policy</h2>
+      <p>We reserve the right to adapt this data protection declaration so that it always complies with the current legal requirements or in order to implement changes to our services in the data protection declaration, e.g. when introducing new services. The new data protection declaration will then apply for your next visit.</p>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

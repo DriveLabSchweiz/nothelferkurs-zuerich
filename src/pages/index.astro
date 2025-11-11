@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CourseCard from '../components/CourseCard.astro';
+import CourseSchema from '../components/CourseSchema.astro';
+import translations from '../data/translations.json';
+import coursesData from '../data/courses.json';
+
+const lang = 'de';
+const t = translations[lang];
+const courses = coursesData.courses.slice(0, 3);
+
+const testimonials = [
+  {
+    name: "Amanda Lee",
+    role: "Expertin",
+    text: "Der Nothelferkurs in Zürich war super organisiert und sehr praxisnah. Die Instruktoren haben alle Themen verständlich erklärt und meine Fragen direkt beantwortet. Ich fühle mich jetzt viel sicherer in Notfallsituationen!",
+    image: "/images/Nothelferkurs.webp",
+  },
+  {
+    name: "Adam Cheis",
+    role: "Graphic Designer",
+    text: "Die Kursleitung war professionell und freundlich. Besonders gefallen hat mir, dass wir viele praktische Übungen machen konnten. Mein Zertifikat habe ich direkt nach dem Kurs erhalten – sehr zu empfehlen!",
+    image: "/images/NothelferkursZürich.webp",
+  },
+  {
+    name: "Melisa Pomero",
+    role: "Support",
+    text: "Die Atmosphäre im Kurs war angenehm und motivierend. Auch als Anfänger habe ich mich gut aufgehoben gefühlt. Der Kurs ist ideal für alle, die den Führerausweis machen möchten.",
+    image: "/images/NothelferkursZürichHB.webp",
+  },
+];
+
+const team = [
+  {
+    name: "Julian Borner",
+    role: t.team.instructor,
+    image: "/images/JulianBornerNothelferInstruktorZürich.webp",
+  },
+  {
+    name: "Vladimir Lepak",
+    role: t.team.instructor,
+    image: "/images/NothelferInstruktorZürichVladimirLepak.webp",
+  },
+  {
+    name: "Dario Lichtensteiger",
+    role: t.team.administration,
+    image: "/images/NothelferkursfürAutoprüfungZürich.webp",
+  },
+];
+---
+
+<BaseLayout lang={lang}>
+  <CourseSchema courses={courses} lang={lang} />
+  <Header />
+  
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-gray-950 py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+              {t.hero.title}
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400">
+              {t.hero.subtitle}
+            </p>
+            <p class="text-gray-600 dark:text-gray-400">
+              {t.hero.description}
+            </p>
+            
+            <div class="space-y-3">
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-sm">{t.hero.certified}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-sm">{t.hero.validCertificate}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-sm">{t.hero.requiredForLicense}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-sm font-semibold text-blue-600">{t.hero.cashback}</span>
+              </div>
+            </div>
+
+            <a
+              href="/courses"
+              class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-md transition-colors mt-4"
+            >
+              {t.nav.bookNow}
+            </a>
+          </div>
+
+          <div class="relative">
+            <img
+              src="/images/1Tages-NothelferkursZürich.webp"
+              alt="Nothelferkurs Zürich"
+              class="rounded-lg shadow-2xl"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Preview -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          {t.courses.title}
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {courses.map((course) => (
+            <CourseCard course={course} lang={lang} />
+          ))}
+        </div>
+
+        <div class="text-center">
+          <a
+            href="/courses"
+            class="inline-block border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium py-3 px-8 rounded-md transition-colors"
+          >
+            Alle Kurse anzeigen
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">{t.location.title}</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              {t.location.description}
+            </p>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              {t.location.nearby}
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-start space-x-2">
+                <svg class="h-5 w-5 text-blue-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                  <p class="font-semibold">PH Zürich</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Lagerstrasse 2<br />
+                    8004 Zürich
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-lg overflow-hidden shadow-lg h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.0!2d8.5302!3d47.3769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDIyJzM2LjgiTiA4wrAzMSc0OC43IkU!5e0!3m2!1sen!2sch!4v1234567890"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          {t.team.title}
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          {team.map((member) => (
+            <div class="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6 text-center">
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                loading="lazy"
+              />
+              <h3 class="font-semibold text-lg">{member.name}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{t.testimonials.feedback}</p>
+          <h2 class="text-3xl font-bold">{t.testimonials.title}</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
+            <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                "{testimonial.text}"
+              </p>
+              <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+                  <span class="font-semibold text-blue-600 dark:text-blue-400">
+                    {testimonial.name.charAt(0)}
+                  </span>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">{testimonial.name}</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          {t.faq.title}
+        </h2>
+        <div class="space-y-6">
+          <div class="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6">
+            <h3 class="font-semibold mb-2">{t.faq.q1}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{t.faq.a1}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6">
+            <h3 class="font-semibold mb-2">{t.faq.q2}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{t.faq.a2}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6">
+            <h3 class="font-semibold mb-2">{t.faq.q3}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{t.faq.a3}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6">
+            <h3 class="font-semibold mb-2">{t.faq.q4}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{t.faq.a4}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-950 rounded-lg shadow-md p-6">
+            <h3 class="font-semibold mb-2">{t.faq.q5}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{t.faq.a5}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

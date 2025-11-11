@@ -1,0 +1,73 @@
+---
+import translations from '../data/translations.json';
+import { getLanguageFromUrl } from '../lib/utils';
+
+const currentLang = getLanguageFromUrl(Astro.url);
+const t = translations[currentLang];
+const basePath = currentLang === 'en' ? '/en' : '';
+---
+
+<footer class="bg-gray-50 dark:bg-gray-900 border-t">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="space-y-4">
+        <div class="flex items-center space-x-2">
+          <img src="/images/LogoTransparency.png" alt="DriveLab Logo" class="h-10 w-10" />
+          <span class="font-bold text-lg">DriveLab</span>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          {t.footer.description}
+        </p>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-semibold mb-4">{t.footer.quickLinks}</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${basePath}/`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.home}</a></li>
+          <li><a href={`${basePath}/courses`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.courses}</a></li>
+          <li><a href={`${basePath}/about`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.about}</a></li>
+          <li><a href={`${basePath}/gallery`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.gallery}</a></li>
+          <li><a href={`${basePath}/contact`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.contact}</a></li>
+        </ul>
+      </div>
+      
+      <!-- Legal -->
+      <div>
+        <h3 class="font-semibold mb-4">{t.footer.legal}</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${basePath}/terms`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.terms}</a></li>
+          <li><a href={`${basePath}/privacy`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.privacy}</a></li>
+          <li><a href={`${basePath}/imprint`} class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t.nav.imprint}</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact -->
+      <div>
+        <h3 class="font-semibold mb-4">{t.contact.title}</h3>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+          <li>
+            <strong>DriveLab GmbH</strong><br />
+            Lauriedhofweg 12<br />
+            CH-6300 Zug
+          </li>
+          <li>
+            <a href="tel:+41762371307" class="hover:text-blue-600 dark:hover:text-blue-400">
+              +41 76 237 13 07
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@drivelab.ch" class="hover:text-blue-600 dark:hover:text-blue-400">
+              info@drivelab.ch
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-8 pt-8 border-t text-center text-sm text-gray-600 dark:text-gray-400">
+      <p>{t.footer.copyright}</p>
+    </div>
+  </div>
+</footer>

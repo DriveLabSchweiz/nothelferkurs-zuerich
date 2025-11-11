@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import translations from '../data/translations.json';
+
+const lang = 'de';
+const t = translations[lang];
+---
+
+<BaseLayout lang={lang} title={`${t.nav.imprint} - ${t.meta.title}`}>
+  <Header />
+  
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto prose dark:prose-invert">
+      <h1>Impressum</h1>
+      
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        DriveLab GmbH<br />
+        Lauriedhofweg 12<br />
+        CH-6300 Zug
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: +41 76 237 13 07<br />
+        E-Mail: info@drivelab.ch
+      </p>
+
+      <h2>Registereintrag</h2>
+      <p>
+        Eintragung im Handelsregister.<br />
+        Registergericht: Handelsregisteramt des Kantons Zug<br />
+        Registernummer: CHE-313.205.027
+      </p>
+
+      <h2>Haftungsausschluss</h2>
+      <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

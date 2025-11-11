@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import translations from '../data/translations.json';
+import { getLanguageFromUrl } from '../lib/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'de' | 'en';
+  image?: string;
+}
+
+const { title, description, lang, image } = Astro.props;
+const currentLang = lang || getLanguageFromUrl(Astro.url);
+const t = translations[currentLang];
+
+const metaTitle = title || t.meta.title;
+const metaDescription = description || t.meta.description;
+const metaImage = image || '/images/NothelferkursZürich.webp';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={currentLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="keywords" content={t.meta.keywords} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={new URL(metaImage, Astro.site)} />
+    <meta property="og:locale" content={currentLang === 'de' ? 'de_CH' : 'en_US'} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDescription} />
+    <meta property="twitter:image" content={new URL(metaImage, Astro.site)} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/LogoTransparency.png" />
+    <link rel="apple-touch-icon" href="/images/LogoTransparency.png" />
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="de" href={new URL(Astro.url.pathname.replace('/en', ''), Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL('/en' + Astro.url.pathname, Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace('/en', ''), Astro.site)} />
+  </head>
+  <body class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <slot />
+  </body>
+</html>
