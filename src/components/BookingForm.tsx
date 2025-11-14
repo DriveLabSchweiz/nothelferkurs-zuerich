@@ -5,7 +5,9 @@ interface Course {
   id: string;
   startDate: string;
   day1: string;
+  day2: string;
   day1Time: string;
+  day2Time: string;
 }
 
 interface Props {
@@ -22,6 +24,9 @@ export default function BookingForm({ courses, lang, selectedCourseId }: Props) 
     lastName: '',
     email: '',
     phone: '',
+    street: '',
+    zipCode: '',
+    city: '',
     terms: false,
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -87,7 +92,7 @@ export default function BookingForm({ courses, lang, selectedCourseId }: Props) 
           <option value="" disabled>Kurs auswählen</option>
           {courses.map((course) => (
             <option key={course.id} value={course.id}>
-              {new Date(course.day1).toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })} ({course.day1Time})
+              {new Date(course.day1).toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })} ({course.day1Time}) & {new Date(course.day2).toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })} ({course.day2Time})
             </option>
           ))}
         </select>
@@ -144,6 +149,46 @@ export default function BookingForm({ courses, lang, selectedCourseId }: Props) 
           required
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
         />
+      </div>
+
+      <div>
+        <label htmlFor="street" className="block text-sm font-medium">{lang === 'de' ? 'Strasse und Hausnummer' : 'Street and Number'}</label>
+        <input
+          type="text"
+          id="street"
+          name="street"
+          value={formData.street}
+          onChange={handleChange}
+          required
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div>
+          <label htmlFor="zipCode" className="block text-sm font-medium">{lang === 'de' ? 'PLZ' : 'ZIP Code'}</label>
+          <input
+            type="text"
+            id="zipCode"
+            name="zipCode"
+            value={formData.zipCode}
+            onChange={handleChange}
+            required
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+          />
+        </div>
+        <div>
+          <label htmlFor="city" className="block text-sm font-medium">{lang === 'de' ? 'Ort' : 'City'}</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            required
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700"
+          />
+        </div>
       </div>
 
       <div className="flex items-center">
